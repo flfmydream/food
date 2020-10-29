@@ -82,7 +82,7 @@
 	mobile[23] = "水饺";
 	mobile[24] = "套餐饭";
 	mobile[25] = "老镇春饼";
-    //根据获得的随机数从而显示出随机的手机号码
+    //根据获得的随机数从而显示出随机的菜品
     function getRandNum(){
         var num = mobile.length-1;//数组的"最大下标"是"数组长度减一"
         document.getElementById("result").value = mobile[GetRnd(0,num)];//调用"GetRnd"随机函数
@@ -103,7 +103,7 @@
 
     //点击"停止"按钮->需调用的函数
     function clearTimer(){
-        // noDupNum();//调用"noDupNum"函数,移除显示的手机号码
+        // noDupNum();//调用"noDupNum"函数,移除显示的菜品
         clearInterval(timer);//取消赋值给"timer"间隔要执行的函数
         document.getElementById("start").disabled = true;//开始按钮可以使用
         document.getElementById("stop").disabled = true;//点击停止时->停止按钮变灰色
@@ -123,9 +123,9 @@
 			
     }
 
-    //移除那些出现过的手机号码
+    //移除那些出现过的菜品
     function noDupNum(){
-        mobile.removeEleAt(randnum);//点击"停止"按钮出现的号码给移除
+        mobile.removeEleAt(randnum);//点击"停止"按钮出现的菜品给移除
         var o = 0;
         for(p=0; p<mobile.length;p++){
             if(typeof mobile[p]!="undefined"){//其中"typeof"是返回"mobile[p]"的类型,有"number","string","boolean" "object","function"和"undefined"这6种返回类型,用字符串来显示
@@ -133,7 +133,7 @@
                 o++;
             }
         }
-        num = mobile.length-1;//移除一个号码时,其"数组长度减一"重新赋值给"数组下标"
+        num = mobile.length-1;//移除一个菜品时,其"数组长度减一"重新赋值给"数组下标"
     }
     Array.prototype.removeEleAt = function(dx){
         if(isNaN(dx)||dx>this.length){
@@ -142,7 +142,7 @@
         this.splice(dx,1);//其中"splice"是从dx开始一个一个移除
     }
 
-    //将随机产生的手机号码显示到中奖区域
+    //将随机产生的菜品显示到中奖区域
     function setValues(){
 		
         document.getElementById(cellnum).value = document.getElementById("result").value ;
